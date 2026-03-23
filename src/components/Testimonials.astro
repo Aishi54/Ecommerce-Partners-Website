@@ -1,0 +1,160 @@
+---
+const testimonials = [
+  {
+    quote: "Working with Ecommerce Partners was a game-changer for our brand. They didn't just build a store; they built a conversion engine that doubled our sales in the first three months.",
+    author: "Sarah Jenkins",
+    role: "Founder, Bloom Fashion",
+    image: "/images/t1.png"
+  },
+  {
+    quote: "The technical expertise and attention to detail are unmatched. Our custom Shopify setup is lightning-fast and handles peak traffic without a single hiccup. Highly recommended!",
+    author: "Michael Chen",
+    role: "CEO, TechGear Global",
+    image: "/images/t2.png"
+  },
+  {
+    quote: "A truly strategic partner. They understood our vision from day one and delivered a brand identity and web experience that perfectly reflects our premium positioning.",
+    author: "Amanda Ross",
+    role: "Marketing Director, Luxe Living",
+    image: "/images/t3.png"
+  }
+];
+---
+
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <h2 class="what">WHAT</h2>
+      <h2 class="clients-say">CLIENTS SAY</h2>
+    </div>
+    
+    <div class="testimonials-grid">
+      {testimonials.map((t, index) => (
+        <div class="testimonial-card">
+          <div class="quote-icon">
+            <svg width="24" height="20" viewBox="0 0 40 30" fill="none">
+              <path d="M11.4286 0C5.11429 0 0 5.11429 0 11.4286V25.7143C0 28.08 1.92 30 4.28571 30H14.2857C16.6514 30 18.5714 28.08 18.5714 25.7143V11.4286C18.5714 5.11429 13.4571 0 11.4286 0ZM32.8571 0C26.5429 0 21.4286 5.11429 21.4286 11.4286V25.7143C21.4286 28.08 23.3486 30 25.7143 30H35.7143C38.08 30 40 28.08 40 25.7143V11.4286C40 5.11429 34.8857 0 32.8571 0Z" fill="var(--orange)" />
+            </svg>
+          </div>
+          <p class="quote">{t.quote}</p>
+          <div class="author-info">
+            <div class="author-details">
+              <h3>{t.author}</h3>
+              <p>{t.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    background-color: #fff;
+    padding: 80px 0 120px;
+    color: var(--text-dark);
+  }
+  
+  .testimonials-header {
+    text-align: left;
+    margin-bottom: 60px;
+  }
+  
+  .what {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -4px;
+    color: var(--primary);
+  }
+  
+  .clients-say {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -4px;
+    color: var(--orange);
+  }
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  
+  .testimonial-card {
+    background-color: #F8F9FB;
+    padding: 40px 32px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    background-color: #fff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.08);
+  }
+  
+  .quote-icon {
+    opacity: 0.8;
+  }
+  
+  .quote {
+    font-family: 'Geist', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444;
+    font-weight: 400;
+  }
+  
+  .author-info {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .author-details h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: var(--primary);
+    text-transform: none;
+  }
+  
+  .author-details p {
+    font-size: 13px;
+    opacity: 0.5;
+    font-family: 'Geist', sans-serif;
+  }
+
+  @media (max-width: 1200px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .testimonial-card {
+      margin-top: 0 !important;
+    }
+    .what, .clients-say {
+      font-size: 60px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+    .what, .clients-say {
+      font-size: 40px;
+      letter-spacing: -2px;
+    }
+  }
+</style>

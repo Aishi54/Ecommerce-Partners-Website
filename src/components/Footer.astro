@@ -1,0 +1,175 @@
+---
+---
+<footer class="footer">
+  <div class="footer-bg-text">
+    <div class="marquee-track">
+      <div class="marquee-item">Ecommerce Partners — Ecommerce Partners — Ecommerce Partners — Ecommerce Partners —</div>
+      <div class="marquee-item" aria-hidden="true">Ecommerce Partners — Ecommerce Partners — Ecommerce Partners — Ecommerce Partners —</div>
+    </div>
+  </div>
+  
+  <div class="container footer-container">
+    <div class="footer-top">
+      <div class="footer-left">
+        <h2>Ecommerce Partners is a Ecommerce Agency</h2>
+      </div>
+      
+      <div class="footer-right">
+        <div class="footer-info-group">
+          <div class="info-item">
+            <h3>Location</h3>
+            <p>Jl. Raya Seminyak No. 88, Seminyak, Bali, Indonesia</p>
+          </div>
+          <div class="info-item">
+            <h3>Call Us</h3>
+            <p>+62 813 3376 1890<br />your@email.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="copyright">© 2025 Ecommerce.Partners. All rights reserved.</p>
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Behance</a>
+        <a href="#">Dribbble</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--bg-light);
+    padding: 100px 0 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .footer-bg-text {
+    position: absolute;
+    top: 70%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    opacity: 0.1;
+    pointer-events: none;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-right 80s linear infinite;
+  }
+
+
+  .marquee-item {
+    font-family: 'Anton SC', sans-serif;
+    font-size: 234px;
+    line-height: 1;
+    color: #111;
+    padding-right: 50px;
+  }
+
+  @keyframes scroll-right {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  
+  .footer-container {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 200px;
+  }
+  
+  .footer-left h2 {
+    font-size: 50.5px;
+    font-weight: 600;
+    max-width: 600px;
+    color: var(--text-dark);
+  }
+  
+  .footer-info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+  }
+  
+  .info-item h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .info-item p {
+    font-family: 'Geist', sans-serif;
+    font-size: 14.4px;
+    opacity: 0.6;
+    max-width: 250px;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #E5E7EB;
+    padding-top: 33px;
+  }
+  
+  .copyright {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .socials {
+    display: flex;
+    gap: 32px;
+  }
+  
+  .socials a {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-top {
+      flex-direction: column;
+      gap: 50px;
+      margin-bottom: 100px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-bg-text .line {
+      font-size: 100px;
+    }
+    .footer-left h2 {
+      font-size: 30px;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+  }
+</style>

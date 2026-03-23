@@ -1,0 +1,224 @@
+---
+---
+<section class="capabilities">
+  <div class="container cap-container">
+    <div class="cap-header">
+      <h2 class="cap-title">
+        We build high-converting ecommerce stores that don’t just look premium — they drive real sales.
+      </h2>
+    </div>
+    
+    <div class="cap-content">
+      <div class="cap-left">
+        <div class="cap-image">
+          <img src="http://localhost:3845/assets/d4aab5278e9efaf50f5369ebc5e94609c749f062.png" alt="Ecommerce Capabilities" class="cap-main-img" />
+          <div class="cap-tag">• Creative as it Should be</div>
+        </div>
+      </div>
+      
+      <div class="cap-right">
+        <div class="capability-item active">
+          <div class="cap-info">
+            <h3>CONVERSION-FOCUSED DEVELOPMENT</h3>
+            <div class="cap-desc">
+              <p>From product pages to checkout optimization, every element is built to increase sales and maximize average order value.</p>
+            </div>
+          </div>
+          <div class="cap-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="capability-item">
+          <div class="cap-info">
+            <h3>MULTI-PLATFORM EXPERTISE</h3>
+            <div class="cap-desc">
+              <p>We specialize in Shopify, WooCommerce, and custom headless solutions, ensuring your brand thrives across all digital touchpoints.</p>
+            </div>
+          </div>
+          <div class="cap-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="divider"></div>
+
+        <div class="capability-item">
+          <div class="cap-info">
+            <h3>SPEED OPTIMIZATION</h3>
+            <div class="cap-desc">
+              <p>Lightning-fast load times across all devices to reduce bounce rates and ensure a seamless shopping experience for your customers.</p>
+            </div>
+          </div>
+          <div class="cap-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="divider"></div>
+
+        <div class="capability-item">
+          <div class="cap-info">
+            <h3>DATA-DRIVEN SCALING</h3>
+            <div class="cap-desc">
+              <p>Utilizing advanced analytics and user behavior data to continuously iterate and scale your business to new heights.</p>
+            </div>
+          </div>
+          <div class="cap-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const items = document.querySelectorAll('.capability-item');
+  
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove active from others
+      items.forEach(i => i.classList.remove('active'));
+      // Add to clicked
+      item.classList.add('active');
+    });
+  });
+</script>
+
+<style>
+  .capabilities {
+    background-color: #fff;
+    padding: 80px 0;
+  }
+  
+  .cap-title {
+    font-size: 44px; /* Reduced from 50.5px */
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    max-width: 800px;
+    margin-bottom: 60px;
+    color: var(--text-dark);
+  }
+  
+  .cap-content {
+    display: flex;
+    gap: 80px;
+  }
+  
+  .cap-left {
+    flex: 1;
+    position: relative;
+    width: 100%;
+  }
+  
+  .cap-main-img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+  
+  .cap-tag {
+    margin-top: 20px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 700;
+  }
+  
+  .cap-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .capability-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    margin-left: -24px; /* Align content by offsetting padding */
+  }
+  
+  .capability-item.active {
+    background-color: #EFECFF;
+  }
+  
+  .cap-info h3 {
+    font-size: 28.8px;
+    letter-spacing: -0.8px;
+    margin-bottom: 0px;
+    transition: margin 0.3s ease;
+  }
+
+  .capability-item.active .cap-info h3 {
+    margin-bottom: 15px;
+  }
+  
+  .cap-desc {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+
+  .capability-item.active .cap-desc {
+    grid-template-rows: 1fr;
+  }
+
+  .cap-desc p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16.25px;
+    opacity: 0.6;
+    max-width: 460px;
+    overflow: hidden;
+  }
+
+  
+  .cap-arrow {
+    width: 43px;
+    height: 43px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+  }
+  
+  .capability-item.active .cap-arrow {
+    background-color: var(--primary);
+    color: #fff;
+    transform: rotate(45deg);
+  }
+  
+  .divider {
+    height: 1px;
+    background-color: rgba(10, 10, 10, 0.16);
+    width: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    .cap-content {
+      flex-direction: column;
+    }
+    .cap-title {
+      font-size: 36px;
+    }
+  }
+</style>

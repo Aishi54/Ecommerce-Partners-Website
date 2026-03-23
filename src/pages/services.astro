@@ -1,0 +1,449 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const services = [
+  {
+    title: "Website Design & Development",
+    icon: "http://localhost:3845/assets/622b42cc333583059962af95949d6a04dd6ad3cf.svg",
+    points: ["Shopify Specialists", "Custom Web Apps", "E-commerce Architecture", "Performance Optimization"]
+  },
+  {
+    title: "Mobile App Development",
+    icon: "http://localhost:3845/assets/9742c9d1a43d6243329d69cd3ed3ae9246e868fb.svg",
+    points: ["iOS Native Apps", "Android Ecosystem", "React Native / Flutter", "API Integration"]
+  },
+  {
+    title: "Branding & Identity",
+    icon: "http://localhost:3845/assets/5b2ec18e1e848a1bfdcb77db1c6ed6fdb588c72b.svg",
+    points: ["Strategic Logo Design", "Visual Identity Systems", "Brand Messaging", "Style Guides"]
+  },
+  {
+    title: "Digital Marketing & SEO",
+    icon: "http://localhost:3845/assets/7ff93804d927e395a90bcb4222df8864f41c4883.svg",
+    points: ["Performance Marketing", "SEO Audit & Strategy", "Content Marketing", "Conversion Optimization"]
+  },
+  {
+    title: "UI/UX Design",
+    icon: "http://localhost:3845/assets/440386db115d31ec9f16ae48f6ffdcb4bb636858.svg",
+    points: ["User Research", "High-Fidelity Prototyping", "Interaction Design", "Usability Testing"]
+  }
+];
+
+const steps = [
+  { num: "01", title: "Discovery", desc: "Deep dive into your business goals, target audience, and competition to build a solid foundation." },
+  { num: "02", title: "Design", desc: "Creating visual concepts and user experiences that captivate and convert your users." },
+  { num: "03", title: "Development", desc: "Turning designs into functional, high-performance code using modern tech stacks." },
+  { num: "04", title: "Launch", desc: "Final testing, deployment, and ongoing optimization to ensure sustained growth." }
+];
+---
+
+<Layout title="Services - Ecommerce Partners">
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="services-hero">
+      <div class="hero-bg-text">Services</div>
+      <div class="container hero-content">
+        <h1 class="hero-title">OUR <br /><span class="highlight">SERVICES</span></h1>
+        <p class="hero-subtitle">• CREATIVE AS IT SHOULD BE</p>
+      </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions-section">
+      <div class="container">
+        <div class="solutions-header">
+          <h2 class="solutions-title">COMPREHENSIVE <br /> DIGITAL <br /> SOLUTIONS.</h2>
+        </div>
+        
+        <div class="services-grid">
+          {services.map(service => (
+            <div class="service-card">
+              <div class="service-icon">
+                <img src={service.icon} alt={service.title} />
+              </div>
+              <h3 class="service-title">{service.title}</h3>
+              <ul class="service-points">
+                {service.points.map(point => (
+                  <li>
+                    <span class="dot"></span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          
+          <div class="quote-card">
+            <p class="quote-text">We love tackling complex problems that don't fit into a box.</p>
+            <a href="#" class="quote-link">GET A CUSTOM QUOTE</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="workflow-section">
+      <div class="container overflow-hidden position-relative">
+        <div class="workflow-header">
+           <span class="workflow-tag">• THE FLOW</span>
+           <h2 class="workflow-title">HOW WE WORK</h2>
+        </div>
+        
+        <div class="steps-grid">
+          {steps.map(step => (
+            <div class="step-item">
+              <span class="step-num">{step.num}</span>
+              <div class="step-content">
+                <h4 class="step-title">{step.title}</h4>
+                <p class="step-desc">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <img src="http://localhost:3845/assets/0643e3e7e3651fedf8c54b0d217a3e5c0fb4b6d2.svg" alt="" class="workflow-decoration" />
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-bg-text">START</div>
+      <div class="container cta-content">
+        <h2 class="cta-title">READY TO START <br /> A PROJECT?</h2>
+        <a href="#" class="cta-btn">GET IN TOUCH —&gt;</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    background-color: var(--primary);
+  }
+
+  /* Hero Section */
+  .services-hero {
+    padding: 160px 0 80px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 140px;
+    font-weight: 900;
+    text-transform: uppercase;
+    opacity: 0.1;
+    white-space: nowrap;
+    pointer-events: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .highlight {
+    color: #ff5c26;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ccff00;
+    letter-spacing: 1px;
+  }
+
+  /* Solutions Section */
+  .solutions-section {
+    background-color: white;
+    padding: 80px 0;
+  }
+
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+  }
+
+  .solutions-header {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 40px;
+    margin-bottom: 0;
+  }
+
+  .solutions-title {
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #111827;
+    text-transform: uppercase;
+    letter-spacing: -1.2px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #e5e7eb;
+    gap: 1px;
+    border: 1px solid #e5e7eb;
+  }
+
+  .service-card {
+    background-color: white;
+    padding: 40px;
+    height: 348px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-icon {
+    width: 40px;
+    height: 44px;
+    margin-bottom: 30px;
+  }
+
+  .service-icon img {
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .service-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #111827;
+    text-transform: uppercase;
+    letter-spacing: -0.48px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .service-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .service-points li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #6b7280;
+    font-size: 14px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--orange);
+    border-radius: 50%;
+  }
+
+  .quote-card {
+    background-color: #231661;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  }
+
+  .quote-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .quote-link {
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    text-decoration: underline;
+  }
+
+  /* Workflow Section */
+  .workflow-section {
+    background-color: var(--primary);
+    padding: 80px 0;
+    color: white;
+    position: relative;
+  }
+
+  .workflow-header {
+    text-align: left;
+    margin-bottom: 60px;
+  }
+
+  .workflow-tag {
+    color: #d1f836;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .workflow-title {
+    font-size: 64px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+  }
+
+  .step-item {
+    position: relative;
+  }
+
+  .step-num {
+    font-size: 80px;
+    font-weight: 900;
+    color: white;
+    opacity: 0.1;
+    position: absolute;
+    top: -40px;
+    left: -10px;
+    pointer-events: none;
+  }
+
+  .step-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    color: #9ca3af;
+    line-height: 1.5;
+  }
+
+  .workflow-decoration {
+    position: absolute;
+    top: -50px;
+    right: 50px;
+    width: 140px;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background-color: var(--orange);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+  }
+
+  .cta-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 140px;
+    font-weight: 900;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-title {
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: #231661;
+    margin-bottom: 48px;
+  }
+
+  .cta-btn {
+    background-color: #231661;
+    color: white;
+    padding: 24px 48px;
+    border-radius: 9999px;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-4px);
+  }
+
+  @media (max-width: 1024px) {
+    .hero-title, .workflow-title, .cta-title {
+      font-size: 60px;
+    }
+    .hero-bg-text, .cta-bg-text {
+      font-size: 150px;
+    }
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-title {
+      font-size: 48px;
+    }
+  }
+</style>

@@ -1,0 +1,537 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const stats = [
+  { value: "10+", label: "Years Experience", color: "#291c6c" },
+  { value: "250+", label: "Projects Delivered", color: "#d1f836" },
+  { value: "15+", label: "Awards Won", color: "#291c6c" },
+  { value: "100%", label: "Client Satisfaction", color: "#d1f836" },
+];
+
+const team = [
+  {
+    name: "Courtney Henry",
+    role: "Ecommerce Strategist",
+    image: "http://localhost:3845/assets/6df76debc726a5de6f0b0599fd2e78c5a8eb161e.png",
+    bg: "rgba(0,0,0,0.2)"
+  },
+  {
+    name: "Brooklyn Simmons",
+    role: "Shopify Developer",
+    image: "http://localhost:3845/assets/0d510b1a6442366e52ad670a16df9e57625c1e63.png",
+    bg: "#ff5c1b"
+  },
+  {
+    name: "Bessie Cooper",
+    role: "Marketplace Specialist",
+    image: "http://localhost:3845/assets/9e4540109b56f40278a58d38568d8e5e2cd259b4.png",
+    bg: "transparent"
+  },
+  {
+    name: "JESELYN ADONA",
+    role: "Paid Ads Manager",
+    image: "http://localhost:3845/assets/9b7f0ca26288f0515165faa0a8aa570b54c79cd9.png",
+    bg: "#ff5c1b"
+  }
+];
+
+const values = [
+  {
+    title: "CONVERSION-FOCUSED DEVELOPMENT",
+    description: "From product pages to checkout optimization, every element is built to increase sales and maximize average order value.",
+    active: true
+  },
+  {
+    title: "MULTI-PLATFORM EXPERTISE",
+    description: "",
+    active: false
+  },
+  {
+    title: "Speed OPTIMIZATION",
+    description: "",
+    active: false
+  },
+  {
+    title: "Data-Driven Scalling",
+    description: "",
+    active: false
+  }
+];
+---
+
+<Layout title="About Us - Ecommerce Partners">
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="about-tag">ABOUT</span>
+          <h1 class="hero-title">WHO <br /> WE <span class="highlight">ARE</span></h1>
+          <p class="hero-description">
+            A TALENTED TEAM BRINGS CREATIVE VISIONS TO LIFE, ENSURING EACH PROJECT REFLECTS CLIENTS' ESSENCE. SEGOE DELIVERS EXCEPTIONAL RESULTS THAT ELEVATE YOUR ONLINE PRESENCE.
+          </p>
+          <a href="#" class="cta-button">
+            LEARN MORE <span>→</span>
+          </a>
+        </div>
+        <div class="hero-image-wrapper">
+          <img src="http://localhost:3845/assets/346d4c4562719257d640306d90ae29d7bbff43c6.png" alt="Team at work" class="hero-img" />
+          <img src="http://localhost:3845/assets/8c243b472e4c2ee45f6f78eb1de97f38038194d9.svg" alt="" class="hero-decoration" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container stats-grid">
+        {stats.map(stat => (
+          <div class="stat-item">
+            <h2 class="stat-value" style={`color: ${stat.color}`}>{stat.value}</h2>
+            <p class="stat-label">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+      <div class="container mission-container">
+        <div class="mission-text">
+          <span class="mission-tag">• Our Mission</span>
+          <h2 class="mission-title">KNOWN FOR OUR INNOVATIVE APPROACH, WE SPECIALIZE IN STUNNING WEBSITES.</h2>
+          <p class="mission-description">
+            We bridge the gap between imagination and reality. Our vision is to empower brands with cutting-edge digital solutions that don't just look good but perform exceptionally in the modern landscape.
+          </p>
+        </div>
+        <div class="mission-images">
+          <img src="http://localhost:3845/assets/3c0f7a054c2c4aca3b351422e4d5f9de052b0128.png" alt="Mission Work" class="mission-img-1" />
+          <img src="http://localhost:3845/assets/1a8904b76b565a3c6abe6332044bf8a8d63a8762.png" alt="Mission Work" class="mission-img-2" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+      <div class="container values-container">
+        <div class="values-header">
+           <h2 class="values-title">OUR CORE <br /><span class="highlight">VALUES</span></h2>
+           <div class="values-image-wrapper">
+             <img src="http://localhost:3845/assets/346d4c4562719257d640306d90ae29d7bbff43c6.png" alt="Core Values" class="values-img" />
+             <img src="http://localhost:3845/assets/dcd148e609e9ecdf4b1af9d790ead211578bcbae.svg" alt="" class="values-decoration" />
+           </div>
+        </div>
+        <div class="values-list">
+          {values.map(value => (
+            <div class={`value-item ${value.active ? 'active' : ''}`}>
+              <div class="value-header">
+                <h3>{value.title}</h3>
+                <div class="value-toggle">
+                  <img src="http://localhost:3845/assets/e02dde9ba146df1a55bce8295fcd909d6cf0d6dd.svg" alt="" class="toggle-icon" />
+                </div>
+              </div>
+              {value.active && <p class="value-desc">{value.description}</p>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+      <div class="container">
+        <div class="team-header">
+          <svg class="team-decoration" viewBox="0 0 82 82"><image href="http://localhost:3845/assets/63fb8ec8df64e69a15c749ea56272bac56e0a618.png" width="82" height="82" /></svg>
+          <h2 class="team-title-main">MEET <br/><span class="highlight">OUR TEAM</span></h2>
+        </div>
+        <div class="team-grid">
+          {team.map(member => (
+            <div class="team-member">
+              <div class="member-image-box" style={`background-color: ${member.bg}`}>
+                <img src={member.image} alt={member.name} class="member-img" />
+              </div>
+              <div class="member-info">
+                <h3>{member.name}</h3>
+                <p>{member.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    background-color: var(--primary);
+  }
+
+  .about-hero {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-tag {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 80px;
+    opacity: 0.1;
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    letter-spacing: -2px;
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+  }
+
+  .hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-size: 80px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -3px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+
+  .highlight {
+    color: var(--orange);
+  }
+
+  .hero-description {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 509px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+
+  .cta-button {
+    background-color: var(--orange);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .hero-image-wrapper {
+    position: relative;
+    width: 596px;
+  }
+
+  .hero-img {
+    width: 100%;
+    border-radius: 24.69px;
+    object-fit: cover;
+  }
+
+  .hero-decoration {
+    position: absolute;
+    bottom: -40px;
+    left: -70px;
+    width: 140px;
+  }
+
+  /* Stats Section */
+  .stats-section {
+    background-color: #ff5c1b;
+    padding: 60px 0;
+  }
+
+  .stats-grid {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 60px;
+    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: rgba(10, 10, 10, 0.6);
+  }
+
+  /* Mission Section */
+  .mission-section {
+    background-color: white;
+    padding: 80px 0;
+  }
+
+  .mission-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .mission-text {
+    max-width: 648px;
+  }
+
+  .mission-tag {
+    color: var(--orange);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .mission-title {
+    font-size: 44px;
+    font-weight: 700;
+    color: #0d0a2d;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  .mission-description {
+    font-size: 18px;
+    color: #4b5563;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .mission-images {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .mission-img-1, .mission-img-2 {
+    width: 320px;
+    border-radius: 28px;
+    object-fit: cover;
+  }
+
+  .mission-img-2 {
+    margin-top: 56px;
+  }
+
+  /* Values Section */
+  .values-section {
+    background-color: white;
+    padding-bottom: 80px;
+  }
+
+  .values-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+  }
+
+  .values-header {
+    flex: 1;
+  }
+
+  .values-title {
+    font-size: 44px;
+    font-weight: 900;
+    color: #0d0a2d;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  .values-image-wrapper {
+    position: relative;
+    max-width: 505px;
+  }
+
+  .values-img {
+    width: 100%;
+    border-radius: 14.44px;
+  }
+
+  .values-decoration {
+    position: absolute;
+    top: 30%;
+    right: -70px;
+    width: 140px;
+  }
+
+  .values-list {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .value-item {
+    padding-bottom: 22px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .value-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .value-header h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+
+  .value-toggle {
+    background: #efecff;
+    padding: 10px;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .value-desc {
+    font-size: 15px;
+    color: #0a0a0a;
+    opacity: 0.6;
+    margin-top: 14px;
+    max-width: 458px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Team Section */
+  .team-section {
+    background-color: #291c6c;
+    padding: 80px 0;
+    color: white;
+  }
+
+  .team-header {
+    position: relative;
+    text-align: left;
+    margin-bottom: 60px;
+  }
+
+  .team-decoration {
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 82px;
+  }
+
+  .team-title-main {
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -4px;
+    text-transform: uppercase;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .team-member {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .member-image-box {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .member-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .member-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .member-info p {
+    font-size: 14px;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 1024px) {
+    .hero-title, .about-tag, .team-title-main {
+      font-size: 80px;
+    }
+    .hero-container, .mission-container, .values-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .hero-image-wrapper, .mission-images, .values-image-wrapper {
+      width: 100%;
+    }
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .stat-item {
+      width: calc(50% - 15px);
+    }
+  }
+</style>
+

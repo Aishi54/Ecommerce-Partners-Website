@@ -1,0 +1,202 @@
+---
+---
+<section class="portfolio">
+  <div class="container">
+    <div class="portfolio-header">
+      <div class="portfolio-title-group">
+        <h2 class="title-premium">PREMIUM</h2>
+        <h2 class="title-work">WORK</h2>
+      </div>
+      <a href="/work" class="see-all">
+        See All Work
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+    
+    <div class="portfolio-grid">
+      <div class="project">
+        <div class="project-img-wrapper">
+          <img src="/images/p1.png" alt="Luckycharm" class="project-img" />
+          <div class="project-overlay">
+            <span class="logo-placeholder">Luckycharm</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Shopify Store for Fashion Brand</h3>
+          <p>Full Store Development + CRO Optimization</p>
+        </div>
+      </div>
+      
+      <div class="project">
+        <div class="project-img-wrapper">
+          <img src="/images/p2.png" alt="Pollinate" class="project-img" />
+          <div class="project-overlay">
+            <span class="logo-placeholder">Pollinate</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Amazon Storefront for Beauty Brand</h3>
+          <p>Brand Registry Setup + A+ Content</p>
+        </div>
+      </div>
+      
+      <div class="project">
+        <div class="project-img-wrapper">
+          <img src="/images/p3.png" alt="LaunchSimple" class="project-img" />
+          <div class="project-overlay">
+            <span class="logo-placeholder">LaunchSimple</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>WooCommerce Store for Electronics Brand</h3>
+          <p>Custom Theme + Payment Integration</p>
+        </div>
+      </div>
+      
+      <div class="project">
+        <div class="project-img-wrapper">
+          <img src="/images/p4.png" alt="Lightbox" class="project-img" />
+          <div class="project-overlay">
+            <span class="logo-placeholder">Lightbox</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Multi-Channel Setup for Lifestyle Brand</h3>
+          <p>Shopify + Amazon + Facebook Shop Integration</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio {
+    background-color: #fff;
+    padding: 80px 0;
+  }
+  
+  .portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 80px;
+  }
+  
+  .portfolio-title-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .title-premium {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+    letter-spacing: -4px;
+  }
+  
+  .title-work {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+    letter-spacing: -4px;
+  }
+  
+  .see-all {
+    background-color: #FF5C00;
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 9999px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: fit-content;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  }
+  
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px 40px;
+  }
+  
+  .project {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .project.offset {
+    margin-top: 100px;
+  }
+  
+  .project-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 613 / 516;
+    background-color: #000;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .project-img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    background-color: #333;
+  }
+  
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo-placeholder {
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  }
+  
+  .project-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.36px;
+  }
+  
+  .project-info p {
+    font-family: 'Geist', sans-serif;
+    font-size: 14.4px;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 1024px) {
+    .title-premium, .title-work {
+      font-size: 80px;
+    }
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+    .project.offset {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .title-premium, .title-work {
+      font-size: 40px;
+      letter-spacing: -2px;
+    }
+    .title-work {
+      margin-left: 20px;
+    }
+  }
+</style>

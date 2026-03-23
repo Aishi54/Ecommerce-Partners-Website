@@ -1,0 +1,141 @@
+---
+---
+<section class="team">
+  <div class="container">
+    <div class="team-header">
+      <h2 class="meet">MEET</h2>
+      <h2 class="our-team">OUR TEAM</h2>
+    </div>
+    
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="member-img">
+          <img src="/images/t1.png" alt="Courtney Henry" class="team-img" />
+        </div>
+        <div class="member-info">
+          <h3>Courtney Henry</h3>
+          <p>Ecommerce Strategist</p>
+        </div>
+      </div>
+      
+      <div class="team-member">
+        <div class="member-img">
+          <img src="/images/t2.png" alt="Brooklyn Simmons" class="team-img" />
+        </div>
+        <div class="member-info">
+          <h3>Brooklyn Simmons</h3>
+          <p>Shopify Developer</p>
+        </div>
+      </div>
+      
+      <div class="team-member">
+        <div class="member-img">
+          <img src="/images/t3.png" alt="Bessie Cooper" class="team-img" />
+        </div>
+        <div class="member-info">
+          <h3>Bessie Cooper</h3>
+          <p>Marketplace Specialist</p>
+        </div>
+      </div>
+      
+      <div class="team-member">
+        <div class="member-img">
+          <img src="/images/t4.png" alt="Jeselyn Adona" class="team-img" />
+        </div>
+        <div class="member-info">
+          <h3>JESELYN ADONA</h3>
+          <p>Paid Ads Manager</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .team {
+    background-color: var(--primary);
+    padding: 100px 0;
+    color: #fff;
+    min-height: auto;
+  }
+  
+  .team-header {
+    text-align: left;
+    margin-bottom: 60px;
+  }
+  
+  .meet {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -4px;
+  }
+  
+  .our-team {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -4px;
+    color: var(--orange);
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .team-member {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .member-img {
+    width: 100%;
+    aspect-ratio: 1; /* Square images for minimal alignment */
+    background-color: rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .member-info h3 {
+    font-size: 16.25px;
+    font-weight: 700;
+    letter-spacing: -0.32px;
+  }
+  
+  .member-info p {
+    font-family: 'Geist', sans-serif;
+    font-size: 14.4px;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 1200px) {
+    .team-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .team-member {
+      margin-top: 0 !important;
+    }
+    .meet, .our-team {
+      font-size: 80px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .meet, .our-team {
+      font-size: 50px;
+      letter-spacing: -2px;
+    }
+  }
+</style>

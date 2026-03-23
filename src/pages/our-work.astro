@@ -1,0 +1,384 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const projects = [
+  {
+    title: "Shopify Store for Fashion Brand",
+    subtitle: "Full Store Development + CRO Optimization",
+    image: "http://localhost:3845/assets/d4aab5278e9efaf50f5369ebc5e94609c749f062.png",
+    logomark: "http://localhost:3845/assets/b0980c6b088864d094e0bc564af76ea72b9f7e69.svg",
+    logotext: "http://localhost:3845/assets/4337a47d3a04284f3d4473d7fdac1f8ac20ddeb0.svg",
+    column: 1
+  },
+  {
+    title: "Amazon Storefront for Beauty Brand",
+    subtitle: "Brand Registry Setup + A+ Content",
+    image: "http://localhost:3845/assets/42c1f0f1ae92314c3189e2cff0bd989d0813f18f.png",
+    logomark: "http://localhost:3845/assets/bd4bd27b71eafaffe8dcff269cd8a99b66da14e1.svg",
+    logotext: "http://localhost:3845/assets/73ff899275c5fb090acc114d933dc360d3f8ff99.svg",
+    column: 2
+  },
+  {
+    title: "WooCommerce Store for Electronics Brand",
+    subtitle: "Custom Theme + Payment Integration",
+    image: "http://localhost:3845/assets/1a8904b76b565a3c6abe6332044bf8a8d63a8762.png",
+    logomark: "http://localhost:3845/assets/7dfcdccc1e189d1cafac05b5eaec3f07f154f680.svg",
+    logotext: "http://localhost:3845/assets/40bda0417322ac1446b5c131764500573067048e.svg",
+    column: 1
+  },
+  {
+    title: "Multi-Channel Setup for Lifestyle Brand",
+    subtitle: "Shopify + Amazon + Facebook Shop Integration",
+    image: "http://localhost:3845/assets/e96f8beedde785ce79d230e66aad7767277b4a86.png",
+    logomark: "http://localhost:3845/assets/2a0bbf65cd6efb2bc4d8af0a6be22dd37c978931.svg",
+    logotext: "http://localhost:3845/assets/8b19316949a14a78a93647bd9cf4ad78713d0ecd.svg",
+    column: 2
+  }
+];
+
+const filters = ["ALL PROJECTS", "BRANDING", "WEB DESIGN", "MOBILE APPS"];
+---
+
+<Layout title="Our Work - Ecommerce Partners">
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="work-hero">
+      <div class="hero-bg-text">PORTFOLIO</div>
+      <div class="container hero-content">
+        <h1 class="hero-title">PREMIUM <br /><span class="highlight">WORK</span></h1>
+        <p class="hero-subtitle">• CREATIVE AS IT SHOULD BE</p>
+      </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section class="filter-bar">
+      <div class="container filter-container">
+        <div class="filters">
+          {filters.map((filter, index) => (
+            <button class={`filter-btn ${index === 0 ? 'active' : ''}`}>{filter}</button>
+          ))}
+        </div>
+        <div class="results-count">Showing 6 Results</div>
+      </div>
+    </section>
+
+    <!-- Projects Gallery -->
+    <section class="gallery-section">
+      <div class="container gallery-grid">
+        <div class="column">
+          {projects.filter(p => p.column === 1).map(project => (
+            <div class="project-card">
+              <div class="image-wrapper">
+                <img src={project.image} alt={project.title} class="project-img" />
+                <div class="logo-overlay">
+                   <img src={project.logomark} alt="" class="logomark" />
+                   <img src={project.logotext} alt="" class="logotext" />
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>{project.title}</h3>
+                <p>{project.subtitle}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="column offset">
+          {projects.filter(p => p.column === 2).map(project => (
+            <div class="project-card">
+              <div class="image-wrapper">
+                <img src={project.image} alt={project.title} class="project-img" />
+                <div class="logo-overlay">
+                   <img src={project.logomark} alt="" class="logomark" />
+                   <img src={project.logotext} alt="" class="logotext" />
+                </div>
+              </div>
+              <div class="project-info">
+                <h3>{project.title}</h3>
+                <p>{project.subtitle}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-bg-text">START</div>
+      <div class="container cta-content">
+        <h2 class="cta-title">READY TO START <br /> A PROJECT?</h2>
+        <a href="#" class="cta-btn">GET IN TOUCH —&gt;</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    background-color: var(--primary);
+  }
+
+  /* Hero Section */
+  .work-hero {
+    padding: 160px 0 80px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 140px;
+    font-weight: 900;
+    text-transform: uppercase;
+    opacity: 0.1;
+    white-space: nowrap;
+    pointer-events: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .highlight {
+    color: #ff5c26;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ccff00;
+    letter-spacing: 1px;
+  }
+
+  /* Filter Bar */
+  .filter-bar {
+    background-color: white;
+    padding: 40px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .filters {
+    display: flex;
+    gap: 48px;
+  }
+
+  .filter-btn {
+    font-size: 14px;
+    font-weight: 400;
+    color: #9ca3af;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-bottom: 4px;
+    white-space: nowrap;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .filter-btn.active {
+    color: var(--orange);
+    font-weight: 700;
+    border-bottom: 2px solid var(--orange);
+  }
+
+  .results-count {
+    color: #9ca3af;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+
+  /* Projects Gallery */
+  .gallery-section {
+    background-color: white;
+    padding: 80px 0;
+  }
+
+  .gallery-grid {
+    display: flex;
+    gap: 30px;
+  }
+
+  .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .column.offset {
+    margin-top: 80px;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 613 / 516;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .logo-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 80%;
+    justify-content: center;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
+  }
+
+  .logomark {
+    height: 64px;
+  }
+
+  .logotext {
+    height: 48px;
+  }
+
+  .project-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    letter-spacing: -0.36px;
+  }
+
+  .project-info p {
+    font-size: 14px;
+    color: #0a0a0a;
+    opacity: 0.6;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background-color: var(--orange);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+  }
+
+  .cta-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 140px;
+    font-weight: 900;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-title {
+    font-size: 80px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: #231661;
+    margin-bottom: 48px;
+  }
+
+  .cta-btn {
+    background-color: #231661;
+    color: white;
+    padding: 24px 48px;
+    border-radius: 9999px;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-4px);
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      padding: 0 40px;
+    }
+    .hero-title, .cta-title {
+      font-size: 60px;
+    }
+    .hero-bg-text, .cta-bg-text {
+      font-size: 150px;
+    }
+    .column.offset {
+      margin-top: 50px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      flex-direction: column;
+    }
+    .column.offset {
+      margin-top: 0;
+    }
+    .filters {
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+    .hero-title {
+      font-size: 48px;
+    }
+  }
+</style>

@@ -1,0 +1,88 @@
+---
+---
+<header class="header">
+  <div class="container header-container">
+    <a href="/" class="logo">
+      <span class="logo-main">Ecommerce.</span> <span class="logo-accent">Partners</span>
+    </a>
+    
+    <nav class="nav">
+      <a href="/about">About</a>
+      <a href="/our-work">Our Work</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/services">Services</a>
+    </nav>
+    
+    <div class="header-right">
+      <span class="location">UK Based</span>
+      <a href="/contact" class="contact-btn">Contact</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 0;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #fff;
+  }
+  
+  .logo-accent {
+    color: var(--orange);
+  }
+  
+  .nav {
+    display: flex;
+    gap: 28px;
+  }
+  
+  .nav a {
+    color: #fff;
+    font-size: 14.4px;
+    font-weight: 400;
+    letter-spacing: -0.28px;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .location {
+    color: rgba(255, 255, 255, 0.64);
+    font-size: 14.4px;
+  }
+  
+  .contact-btn {
+    background-color: var(--orange);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 9999px;
+    font-size: 14.4px;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+  }
+
+  .contact-btn:hover {
+    transform: translateY(-2px);
+  }
+
+</style>
