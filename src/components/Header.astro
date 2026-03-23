@@ -7,27 +7,61 @@
     </a>
     
     <nav class="nav">
+      <a href="/">Home</a>
       <a href="/about">About</a>
       <a href="/our-work">Our Work</a>
-      <a href="/case-studies">Case Studies</a>
       <a href="/services">Services</a>
     </nav>
     
     <div class="header-right">
       <span class="location">UK Based</span>
       <a href="/contact" class="contact-btn">Contact</a>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu">
+    <nav class="mobile-nav">
+      <div class="nav-item-wrapper"><a href="/">Home</a></div>
+      <div class="nav-item-wrapper"><a href="/about">About</a></div>
+      <div class="nav-item-wrapper"><a href="/our-work">Our Work</a></div>
+      <div class="nav-item-wrapper"><a href="/services">Services</a></div>
+      <div class="nav-item-wrapper"><a href="/contact" class="mobile-contact">Start Project</a></div>
+    </nav>
   </div>
 </header>
 
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const body = document.body;
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      body.classList.toggle('no-scroll');
+    });
+  }
+</script>
+
 <style>
   .header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
     padding: 20px 0;
+    background-color: rgba(41, 28, 108, 0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
   }
   
   .header-container {
@@ -42,6 +76,8 @@
     font-weight: 700;
     letter-spacing: -0.5px;
     color: #fff;
+    text-decoration: none;
+    z-index: 10001;
   }
   
   .logo-accent {
@@ -50,39 +86,188 @@
   
   .nav {
     display: flex;
-    gap: 28px;
+    gap: 32px;
   }
   
   .nav a {
     color: #fff;
-    font-size: 14.4px;
-    font-weight: 400;
-    letter-spacing: -0.28px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .nav a:hover {
+    color: var(--orange);
   }
   
   .header-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 24px;
   }
   
   .location {
-    color: rgba(255, 255, 255, 0.64);
-    font-size: 14.4px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
   }
   
   .contact-btn {
     background-color: var(--orange);
     color: #fff;
-    padding: 10px 24px;
+    padding: 12px 28px;
     border-radius: 9999px;
-    font-size: 14.4px;
-    font-weight: 500;
-    transition: transform 0.3s ease;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
   }
 
   .contact-btn:hover {
     transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 97, 44, 0.2);
   }
 
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10001;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 1.5px; /* Thinner for elegance */
+    background-color: white;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transform-origin: center;
+  }
+
+  /* Sharp Minimalist X */
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(2px) rotate(45deg);
+    background-color: white;
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-5.5px) rotate(-45deg);
+    background-color: white;
+  }
+
+  /* Mobile Menu Overlay - Refined & Compact */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary); /* Restored Website Primary Blue */
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    backdrop-filter: blur(25px);
+  }
+
+
+  .mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align left for cleaner look */
+    gap: 16px;
+    width: 100%;
+  }
+
+  .nav-item-wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .nav-item-wrapper a {
+    display: block;
+    color: white;
+    font-size: 28px; /* Compact & Elegant */
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    transform: translateY(100%);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+  }
+
+  .mobile-menu.active .nav-item-wrapper a {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .mobile-menu.active .nav-item-wrapper:nth-child(1) a { transition-delay: 0.1s; }
+  .mobile-menu.active .nav-item-wrapper:nth-child(2) a { transition-delay: 0.15s; }
+  .mobile-menu.active .nav-item-wrapper:nth-child(3) a { transition-delay: 0.2s; }
+  .mobile-menu.active .nav-item-wrapper:nth-child(4) a { transition-delay: 0.25s; }
+  .mobile-menu.active .nav-item-wrapper:nth-child(5) a { transition-delay: 0.3s; }
+
+  .mobile-nav a:hover {
+    color: var(--orange);
+    transform: translateX(10px);
+  }
+
+  .mobile-contact {
+    background-color: var(--orange);
+    padding: 14px 32px !important;
+    border-radius: 9999px;
+    font-size: 16px !important;
+    margin-top: 24px;
+    display: inline-flex !important;
+    width: auto !important;
+  }
+
+  @media (max-width: 1024px) {
+    .nav, .location, .contact-btn {
+      display: none;
+    }
+    .menu-toggle {
+      display: flex;
+    }
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(4px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      transform: translateY(-4px) rotate(-45deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header {
+      padding: 15px 0;
+    }
+    .logo {
+      font-size: 20px;
+    }
+  }
 </style>

@@ -1,47 +1,11 @@
 ---
 const logos = [
-  {
-    mark: "http://localhost:3845/assets/1e8a5445afa2a288880c1283fcefe923eb7a6565.svg",
-    text: "http://localhost:3845/assets/1d71483e95ab1396e9e35063d0b1e3e8f8bb9447.svg",
-    name: "Flora & Fauna",
-    markWidth: "24.074px",
-    textWidth: "93.889px",
-  },
-  {
-    mark: "http://localhost:3845/assets/7dd14c64b57bcf21fc4968466937c360c73d7f7e.svg",
-    text: "http://localhost:3845/assets/2fe0ee495a743e458daa1df8537dff0008c515dd.svg",
-    name: "Luckycharm",
-    markWidth: "23.472px",
-    textWidth: "90.278px",
-  },
-  {
-    mark: "http://localhost:3845/assets/67cae373bed12b3fd493933782a3d5ed0d61bb87.svg",
-    text: "http://localhost:3845/assets/a05b83d3df2af347c661e2827ce3cfcdb82d3b91.svg",
-    name: "LaunchSimple",
-    markWidth: "24.074px",
-    textWidth: "102.917px",
-  },
-  {
-    mark: "http://localhost:3845/assets/daf5991822f49291dc6092207b110ab20af5f0f4.svg",
-    text: "http://localhost:3845/assets/1260d47dd157f1139c608843ded71482edfbc3a4.svg",
-    name: "Lightbox",
-    markWidth: "22.87px",
-    textWidth: "69.213px",
-  },
-  {
-    mark: "http://localhost:3845/assets/c69a374b49907c1f85ebfb4230970037fd96990b.svg",
-    text: "http://localhost:3845/assets/8644cd26e2feb2cf8703f906a0cc24e97f2b0a65.svg",
-    name: "Leapyear",
-    markWidth: "19.259px",
-    textWidth: "72.824px",
-  },
-  {
-    mark: "http://localhost:3845/assets/f385ba2470031e6496c147e799f5b7a430bc3847.svg",
-    text: "http://localhost:3845/assets/8e64946529dd29d4579693bc1e4cef109cf036a4.svg",
-    name: "Pollinate",
-    markWidth: "22.87px",
-    textWidth: "61.991px",
-  },
+  { name: "Flora & Fauna", src: "/images/logos/flora_fauna.png" },
+  { name: "Luckycharm", src: "/images/logos/luckycharm.png" },
+  { name: "LaunchSimple", src: "/images/logos/launchsimple.png" },
+  { name: "Lightbox", src: "/images/logos/lightbox.png" },
+  { name: "Leapyear", src: "/images/logos/leapyear.png" },
+  { name: "Pollinate", src: "/images/logos/pollinate.png" },
 ];
 
 // Duplicate for continuous loop
@@ -50,26 +14,17 @@ const marqueeLogos = [...logos, ...logos, ...logos, ...logos];
 
 <section class="trusted">
   <div class="container trusted-container">
-    <p class="trusted-title">Trusted By Companies</p>
+    <p class="trusted-title">TRUSTED BY COMPANIES</p>
     <div class="marquee-track">
       <div class="marquee-content">
         {
           marqueeLogos.map((logo) => (
             <div class="logo-pill">
-              <div class="logo-content">
-                <img
-                  src={logo.mark}
-                  alt=""
-                  class="logo-mark"
-                  style={`width: ${logo.markWidth}`}
-                />
-                <img
-                  src={logo.text}
-                  alt={logo.name}
-                  class="logo-text"
-                  style={`width: ${logo.textWidth}`}
-                />
-              </div>
+              <img
+                src={logo.src}
+                alt={logo.name}
+                class="brand-logo"
+              />
             </div>
           ))
         }
@@ -81,7 +36,7 @@ const marqueeLogos = [...logos, ...logos, ...logos, ...logos];
 <style>
   .trusted {
     background-color: #fff;
-    padding: 80px 0;
+    padding: 40px 0;
     width: 100%;
     overflow: hidden;
   }
@@ -89,34 +44,36 @@ const marqueeLogos = [...logos, ...logos, ...logos, ...logos];
   .trusted-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align title to left */
-    gap: 30px;
+    align-items: flex-start;
+    gap: 20px;
   }
   
   .trusted-title {
-    font-size: 14px; /* More minimal */
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 900;
     color: var(--primary);
     text-align: left;
-    margin-bottom: 10px;
-    opacity: 0.6;
-    letter-spacing: 1px;
+    margin-bottom: 0px; /* Removed margin to use container gap */
+    letter-spacing: 2px;
     text-transform: uppercase;
+    border-left: 4px solid #ff612c;
+    padding-left: 16px;
+    line-height: 1;
   }
   
   .marquee-track {
     width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 20px 0;
+    padding: 10px 0;
   }
 
   .marquee-content {
     display: flex !important;
-    flex-direction: row !important; /* FORCE HORIZONTAL */
+    flex-direction: row !important;
     flex-wrap: nowrap !important;
     align-items: center;
-    gap: 60px; /* Increased gap for better spacing */
+    gap: 140px; /* Increased gap for larger logos */
     width: max-content;
     animation: marquee-left-to-right 40s linear infinite;
   }
@@ -136,30 +93,30 @@ const marqueeLogos = [...logos, ...logos, ...logos, ...logos];
 
   .logo-pill {
     display: flex !important;
-    flex-direction: row !important;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    height: 40px; /* Slimmer pills */
+    height: 120px; /* Increased for BIG logos */
     transition: transform 0.3s ease;
   }
 
   .logo-pill:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 
-  .logo-content {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .logo-mark,
-  .logo-text {
-    height: 24.89px; /* Slightly smaller for premium look */
-    display: block !important;
+  .brand-logo {
+    height: 100px; /* BIG logos as requested */
+    width: auto;
+    display: block;
     object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.4s ease;
+  }
+
+  .logo-pill:hover .brand-logo {
+    opacity: 1;
+    filter: grayscale(0%);
   }
 
   @media (max-width: 768px) {

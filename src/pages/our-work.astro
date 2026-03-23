@@ -7,35 +7,39 @@ const projects = [
   {
     title: "Shopify Store for Fashion Brand",
     subtitle: "Full Store Development + CRO Optimization",
-    image: "http://localhost:3845/assets/d4aab5278e9efaf50f5369ebc5e94609c749f062.png",
-    logomark: "http://localhost:3845/assets/b0980c6b088864d094e0bc564af76ea72b9f7e69.svg",
-    logotext: "http://localhost:3845/assets/4337a47d3a04284f3d4473d7fdac1f8ac20ddeb0.svg",
-    column: 1
+    image: "/images/p1.png",
+    logomark: "/images/logos/luckycharm.png",
+    logotext: "",
+    column: 1,
+    category: "WEB DESIGN"
   },
   {
     title: "Amazon Storefront for Beauty Brand",
     subtitle: "Brand Registry Setup + A+ Content",
-    image: "http://localhost:3845/assets/42c1f0f1ae92314c3189e2cff0bd989d0813f18f.png",
-    logomark: "http://localhost:3845/assets/bd4bd27b71eafaffe8dcff269cd8a99b66da14e1.svg",
-    logotext: "http://localhost:3845/assets/73ff899275c5fb090acc114d933dc360d3f8ff99.svg",
-    column: 2
+    image: "/images/p2.png",
+    logomark: "/images/logos/pollinate.png",
+    logotext: "",
+    column: 2,
+    category: "BRANDING"
   },
   {
     title: "WooCommerce Store for Electronics Brand",
     subtitle: "Custom Theme + Payment Integration",
-    image: "http://localhost:3845/assets/1a8904b76b565a3c6abe6332044bf8a8d63a8762.png",
-    logomark: "http://localhost:3845/assets/7dfcdccc1e189d1cafac05b5eaec3f07f154f680.svg",
-    logotext: "http://localhost:3845/assets/40bda0417322ac1446b5c131764500573067048e.svg",
-    column: 1
+    image: "/images/p3.png",
+    logomark: "/images/logos/launchsimple.png",
+    logotext: "",
+    column: 1,
+    category: "MOBILE APPS"
   },
   {
     title: "Multi-Channel Setup for Lifestyle Brand",
     subtitle: "Shopify + Amazon + Facebook Shop Integration",
-    image: "http://localhost:3845/assets/e96f8beedde785ce79d230e66aad7767277b4a86.png",
-    logomark: "http://localhost:3845/assets/2a0bbf65cd6efb2bc4d8af0a6be22dd37c978931.svg",
-    logotext: "http://localhost:3845/assets/8b19316949a14a78a93647bd9cf4ad78713d0ecd.svg",
-    column: 2
-  }
+    image: "/images/p4.png",
+    logomark: "/images/logos/lightbox.png",
+    logotext: "",
+    column: 2,
+    category: "WEB DESIGN"
+  },
 ];
 
 const filters = ["ALL PROJECTS", "BRANDING", "WEB DESIGN", "MOBILE APPS"];
@@ -47,9 +51,20 @@ const filters = ["ALL PROJECTS", "BRANDING", "WEB DESIGN", "MOBILE APPS"];
   <main>
     <!-- Hero Section -->
     <section class="work-hero">
-      <div class="hero-bg-text">PORTFOLIO</div>
+      <div class="hero-bg-text">
+        <div class="marquee-track">
+          <div class="marquee-item">
+            OUR WORK — SUCCESS STORIES — PORTFOLIO — ECOMMERCE —
+          </div>
+          <div class="marquee-item" aria-hidden="true">
+            OUR WORK — SUCCESS STORIES — PORTFOLIO — ECOMMERCE —
+          </div>
+        </div>
+      </div>
       <div class="container hero-content">
-        <h1 class="hero-title">PREMIUM <br /><span class="highlight">WORK</span></h1>
+        <h1 class="hero-title">
+          PREMIUM <br /><span class="highlight">WORK</span>
+        </h1>
         <p class="hero-subtitle">• CREATIVE AS IT SHOULD BE</p>
       </div>
     </section>
@@ -58,9 +73,13 @@ const filters = ["ALL PROJECTS", "BRANDING", "WEB DESIGN", "MOBILE APPS"];
     <section class="filter-bar">
       <div class="container filter-container">
         <div class="filters">
-          {filters.map((filter, index) => (
-            <button class={`filter-btn ${index === 0 ? 'active' : ''}`}>{filter}</button>
-          ))}
+          {
+            filters.map((filter, index) => (
+              <button class={`filter-btn ${index === 0 ? "active" : ""}`}>
+                {filter}
+              </button>
+            ))
+          }
         </div>
         <div class="results-count">Showing 6 Results</div>
       </div>
@@ -70,48 +89,101 @@ const filters = ["ALL PROJECTS", "BRANDING", "WEB DESIGN", "MOBILE APPS"];
     <section class="gallery-section">
       <div class="container gallery-grid">
         <div class="column">
-          {projects.filter(p => p.column === 1).map(project => (
-            <div class="project-card">
-              <div class="image-wrapper">
-                <img src={project.image} alt={project.title} class="project-img" />
-                <div class="logo-overlay">
-                   <img src={project.logomark} alt="" class="logomark" />
-                   <img src={project.logotext} alt="" class="logotext" />
+          {
+            projects
+              .filter((p) => p.column === 1)
+              .map((project) => (
+                <div class="project-card" data-category={project.category}>
+                  <div class="image-wrapper">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      class="project-img"
+                    />
+                    <div class="logo-overlay">
+                      <img src={project.logomark} alt="" class="logomark" />
+                      <img src={project.logotext} alt="" class="logotext" />
+                    </div>
+                  </div>
+                  <div class="project-info">
+                    <h3>{project.title}</h3>
+                    <p>{project.subtitle}</p>
+                  </div>
                 </div>
-              </div>
-              <div class="project-info">
-                <h3>{project.title}</h3>
-                <p>{project.subtitle}</p>
-              </div>
-            </div>
-          ))}
+              ))
+          }
         </div>
         <div class="column offset">
-          {projects.filter(p => p.column === 2).map(project => (
-            <div class="project-card">
-              <div class="image-wrapper">
-                <img src={project.image} alt={project.title} class="project-img" />
-                <div class="logo-overlay">
-                   <img src={project.logomark} alt="" class="logomark" />
-                   <img src={project.logotext} alt="" class="logotext" />
+          {
+            projects
+              .filter((p) => p.column === 2)
+              .map((project) => (
+                <div class="project-card" data-category={project.category}>
+                  <div class="image-wrapper">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      class="project-img"
+                    />
+                    <div class="logo-overlay">
+                      <img src={project.logomark} alt="" class="logomark" />
+                      <img src={project.logotext} alt="" class="logotext" />
+                    </div>
+                  </div>
+                  <div class="project-info">
+                    <h3>{project.title}</h3>
+                    <p>{project.subtitle}</p>
+                  </div>
                 </div>
-              </div>
-              <div class="project-info">
-                <h3>{project.title}</h3>
-                <p>{project.subtitle}</p>
-              </div>
-            </div>
-          ))}
+              ))
+          }
         </div>
       </div>
     </section>
 
+    <script>
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Update active button state
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          const filterValue = button.textContent?.trim().toUpperCase();
+
+          projectCards.forEach((card: any) => {
+            const cardCategory = card.getAttribute('data-category');
+            
+            if (filterValue === 'ALL PROJECTS' || filterValue === cardCategory) {
+              card.style.display = 'flex';
+              // Trigger a small animation
+              card.style.opacity = '0';
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, 50);
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    </script>
+
     <!-- CTA Section -->
     <section class="cta-section">
-      <div class="cta-bg-text">START</div>
-      <div class="container cta-content">
-        <h2 class="cta-title">READY TO START <br /> A PROJECT?</h2>
-        <a href="#" class="cta-btn">GET IN TOUCH —&gt;</a>
+      <div class="cta-card">
+        <div class="cta-bg-wrapper">
+          <div class="cta-bg-text">START</div>
+        </div>
+        <div class="container cta-content">
+          <h2 class="cta-title">READY TO START <br /> A <span class="white-text">PROJECT?</span></h2>
+          <a href="/contact" class="cta-btn">
+            <span>GET IN TOUCH —&gt;</span>
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -135,15 +207,38 @@ const filters = ["ALL PROJECTS", "BRANDING", "WEB DESIGN", "MOBILE APPS"];
   .hero-bg-text {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 140px;
-    font-weight: 900;
-    text-transform: uppercase;
-    opacity: 0.1;
-    white-space: nowrap;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
     pointer-events: none;
-    font-family: 'Inter', sans-serif;
+    opacity: 0.1;
+    z-index: 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-right 50s linear infinite;
+  }
+
+  .marquee-item {
+    font-family: "Anton SC", sans-serif;
+    font-size: 250px;
+    line-height: 1;
+    color: #fff;
+    padding-right: 100px;
+    text-transform: uppercase;
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 
   .hero-content {
@@ -191,21 +286,40 @@ const filters = ["ALL PROJECTS", "BRANDING", "WEB DESIGN", "MOBILE APPS"];
 
   .filter-btn {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 700;
     color: #9ca3af;
     background: none;
     border: none;
     cursor: pointer;
-    padding-bottom: 4px;
+    padding-bottom: 8px;
     white-space: nowrap;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+
+  .filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--orange);
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .filter-btn:hover {
+    color: var(--primary);
+  }
+
+  .filter-btn:hover::after, .filter-btn.active::after {
+    width: 100%;
   }
 
   .filter-btn.active {
     color: var(--orange);
-    font-weight: 700;
-    border-bottom: 2px solid var(--orange);
   }
 
   .results-count {
@@ -242,20 +356,37 @@ const filters = ["ALL PROJECTS", "BRANDING", "WEB DESIGN", "MOBILE APPS"];
     display: flex;
     flex-direction: column;
     gap: 20px;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 12px;
+  }
+
+  .project-card:hover {
+    transform: translateY(-15px);
   }
 
   .image-wrapper {
     position: relative;
     width: 100%;
     aspect-ratio: 613 / 516;
-    border-radius: 4px;
+    border-radius: 8px;
     overflow: hidden;
+    transition: box-shadow 0.5s ease;
+  }
+
+  .project-card:hover .image-wrapper {
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
   }
 
   .project-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .project-card:hover .project-img {
+    transform: scale(1.15) rotate(1deg);
   }
 
   .logo-overlay {
@@ -265,18 +396,25 @@ const filters = ["ALL PROJECTS", "BRANDING", "WEB DESIGN", "MOBILE APPS"];
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
-    gap: 18px;
-    width: 80%;
+    gap: 24px;
+    width: 90%;
     justify-content: center;
-    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.25));
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+    transition: all 0.5s ease;
+  }
+
+  .project-card:hover .logo-overlay {
+    transform: translate(-50%, -55%) scale(1.1);
   }
 
   .logomark {
-    height: 64px;
+    height: 120px; /* BIG Logos */
+    width: auto;
   }
 
   .logotext {
-    height: 48px;
+    height: 80px; /* BIG Logos */
+    width: auto;
   }
 
   .project-info h3 {
@@ -294,43 +432,74 @@ const filters = ["ALL PROJECTS", "BRANDING", "WEB DESIGN", "MOBILE APPS"];
     opacity: 0.6;
   }
 
-  /* CTA Section */
+  /* CTA Section - Floating Card Style */
   .cta-section {
-    background-color: var(--orange);
-    padding: 80px 0;
+    background-color: transparent; /* Changed to transparent to show 'card' */
+    padding: 60px 40px; /* Surrounding space */
+    position: relative;
+    width: 100%;
+    background-color: white; /* Behind the card */
+  }
+
+  .cta-card {
+    background-color: #ff612c;
+    border-radius: 40px;
+    padding: 100px 40px;
     position: relative;
     overflow: hidden;
-    color: white;
+    color: #231661;
     text-align: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 20px 60px rgba(255, 97, 44, 0.15);
+  }
+
+  .cta-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .cta-bg-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 140px;
+    font-family: 'Anton SC', sans-serif;
+    font-size: 200px;
     font-weight: 900;
-    opacity: 0.1;
-    pointer-events: none;
+    color: white;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -2px;
   }
 
   .cta-content {
     position: relative;
     z-index: 1;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   .cta-title {
-    font-size: 80px;
+    font-size: 64px;
     font-weight: 900;
-    line-height: 1;
-    letter-spacing: -2px;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
     text-transform: uppercase;
     color: #231661;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
+  }
+
+  .white-text {
+    color: white;
   }
 
   .cta-btn {
@@ -339,35 +508,47 @@ const filters = ["ALL PROJECTS", "BRANDING", "WEB DESIGN", "MOBILE APPS"];
     padding: 24px 48px;
     border-radius: 9999px;
     font-size: 18px;
-    font-weight: 900;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1.8px;
     box-shadow: 0 4px 4px rgba(0,0,0,0.25);
-    transition: transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
   }
 
   .cta-btn:hover {
-    transform: translateY(-4px);
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
   }
 
-  @media (max-width: 1024px) {
+  /* Responsive Refinements - 'Perfect' Mobile Fixes */
+  @media (max-width: 1200px) {
     .container {
       padding: 0 40px;
     }
     .hero-title, .cta-title {
-      font-size: 60px;
+      font-size: 64px;
+      letter-spacing: -2.5px;
     }
-    .hero-bg-text, .cta-bg-text {
+    .marquee-item {
       font-size: 150px;
-    }
-    .column.offset {
-      margin-top: 50px;
     }
   }
 
   @media (max-width: 768px) {
+    .work-hero, .gallery-section, .cta-section {
+      padding: 80px 0;
+    }
+    .hero-title, .cta-title {
+      font-size: 40px !important;
+      letter-spacing: -1.5px;
+    }
+    .hero-bg-text, .cta-bg-text {
+      font-size: 100px !important;
+    }
     .gallery-grid {
       flex-direction: column;
+      gap: 40px;
     }
     .column.offset {
       margin-top: 0;
@@ -375,10 +556,31 @@ const filters = ["ALL PROJECTS", "BRANDING", "WEB DESIGN", "MOBILE APPS"];
     .filters {
       gap: 20px;
       overflow-x: auto;
-      padding-bottom: 10px;
+      padding-bottom: 20px;
+      justify-content: flex-start;
+      margin-left: -20px;
+      padding-left: 20px;
     }
-    .hero-title {
-      font-size: 48px;
+    .filter-btn {
+      font-size: 12px;
+    }
+    .results-count {
+      display: none;
+    }
+    .cta-card {
+      padding: 60px 24px;
+      border-radius: 20px;
+    }
+    .cta-btn {
+      padding: 16px 32px;
+      font-size: 16px;
+    }
+    .logomark {
+      height: 80px;
+    }
+    .logotext {
+      height: 48px;
     }
   }
+
 </style>
