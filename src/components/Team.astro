@@ -67,15 +67,33 @@
   const nextBtn = document.querySelector('.team-next');
 
   if (grid && prevBtn && nextBtn) {
-    const scrollAmount = 300;
-    
     prevBtn.addEventListener('click', () => {
-      grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      const cardWidth = grid.querySelector('.team-member')?.clientWidth || 300;
+      grid.scrollBy({ left: -(cardWidth + 20), behavior: 'smooth' });
     });
 
     nextBtn.addEventListener('click', () => {
-      grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      const cardWidth = grid.querySelector('.team-member')?.clientWidth || 300;
+      grid.scrollBy({ left: cardWidth + 20, behavior: 'smooth' });
     });
+
+    // Intersection Observer for Active State
+    const observerOptions = {
+      root: grid,
+      threshold: 0.7
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+    }, observerOptions);
+
+    grid.querySelectorAll('.team-member').forEach(member => observer.observe(member));
   }
 </script>
 
@@ -102,24 +120,25 @@
   }
 
   .team-controls button {
-    width: 64px;
-    height: 64px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
-    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255,255,255,0.05);
     color: white;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s ease;
   }
 
-  .team-controls button:hover {
+
+  .team-controls button:active {
     background-color: var(--orange);
-    border-color: var(--orange);
-    transform: scale(1.1);
+    transform: scale(0.9);
   }
+
 
   .meet {
     font-size: 80px;
@@ -181,11 +200,13 @@
     opacity: 0.8;
   }
 
-  .team-member:hover .team-img {
+  .team-member:hover .team-img,
+  .team-member.active .team-img {
     filter: grayscale(0%);
-    transform: scale(1.1);
+    transform: scale(1.05);
     opacity: 1;
   }
+
   
   .member-info h3 {
     font-size: 20px;
@@ -250,8 +271,12 @@
     }
     .member-info h3 {
       font-size: 18px;
-      color: var(--orange); /* Match requested look */
+      transition: color 0.4s ease;
     }
+    .team-member.active h3 {
+      color: var(--orange);
+    }
+
   }
 
 
